@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VKN Charities — Website Preview</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+:root{--forest:#1F4D3A;--forestDark:#143327;--sage:#E6EEE8;--saffron:#C8873A;--saffronLight:#F6E9D7;--gold:#E8B877;--cream:#FAF6EF;--ink:#1E2320;--muted:#5C6660;--line:#E3DDD2}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased}
+h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif;font-weight:600;margin:0;line-height:1.15}
+p{margin:0;color:var(--muted);line-height:1.65}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto}
+section{padding:96px 40px}.white{background:#fff}.dark{background:var(--forestDark)}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;color:var(--saffron)}
+.h-display{font-size:clamp(34px,5vw,60px);color:var(--forestDark)}
+.h2{font-size:clamp(28px,3.4vw,36px);margin-top:14px}
+.lead{font-size:17px;margin-top:16px;max-width:720px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:16px 26px;border-radius:40px;font-weight:600;font-size:15px;cursor:pointer;border:1.4px solid transparent;font-family:inherit;transition:.2s}
+.btn-fill{background:var(--saffron);color:#fff}.btn-fill:hover{background:#b3762f}
+.btn-line{border-color:var(--forest);color:var(--forest);background:transparent}.btn-line:hover{background:var(--sage)}
+.btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+/* header */
+header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);padding:14px 40px}
+header .wrap{display:flex;align-items:center;gap:8px}
+.logo{display:flex;align-items:center;gap:12px;cursor:pointer}
+.logo-mark{width:42px;height:42px;border-radius:12px;background:var(--forest);display:grid;place-items:center;color:var(--gold);font-size:22px}
+.logo b{display:block;font-family:'Playfair Display',serif;font-size:21px;color:var(--forest);line-height:1.1}
+.logo small{font-size:11px;letter-spacing:1.4px;color:var(--muted)}
+nav{margin-left:auto;display:flex;align-items:center;gap:4px}
+nav a{padding:12px 14px;font-weight:500;font-size:15px;position:relative}
+nav a.active{color:var(--forest);font-weight:700}
+nav a.active:after{content:"";position:absolute;left:50%;bottom:4px;width:20px;height:2px;margin-left:-10px;background:var(--saffron)}
+nav .btn{margin-left:14px;padding:13px 22px}
+.burger{display:none;margin-left:auto;background:none;border:0;font-size:26px;color:var(--forest);cursor:pointer}
+/* grid & cards */
+.grid{display:grid;gap:24px;grid-template-columns:repeat(var(--c,3),1fr)}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:0 6px 18px rgba(0,0,0,.03)}
+.ic{width:52px;height:52px;border-radius:14px;background:var(--sage);display:grid;place-items:center;font-size:24px;margin-bottom:20px}
+.card h3{font-size:22px}.card .tag{color:var(--saffron);font-weight:600;font-size:13px;margin-top:6px}.card p{margin-top:10px;font-size:15px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 24px}
+.stat .v{font-family:'Playfair Display',serif;font-size:28px;color:var(--forest)}.stat p{margin-top:6px;font-size:15px}
+.stat.dk{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.18)}.stat.dk .v{color:var(--gold)}.stat.dk p{color:rgba(255,255,255,.7)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.bullet{display:flex;gap:12px;margin-bottom:12px;color:var(--muted);font-size:17px;line-height:1.6}.bullet:before{content:"✓";color:#fff;background:var(--saffron);border-radius:50%;width:18px;height:18px;flex:none;display:grid;place-items:center;font-size:11px;margin-top:4px}
+/* hero */
+.hero{background:linear-gradient(var(--cream),var(--saffronLight));padding:88px 40px}
+.hero .two{grid-template-columns:6fr 5fr;gap:56px}
+.hero-card{height:500px;border-radius:28px;background:linear-gradient(135deg,var(--forest),var(--forestDark));padding:36px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.hero-card .bg{position:absolute;right:-30px;top:-60px;font-size:280px;opacity:.06}
+.hero-card blockquote{margin:12px 0 0;font-family:'Playfair Display',serif;font-style:italic;font-size:28px;color:#fff;line-height:1.3}
+.badges{margin-top:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.badges div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:16px 8px;text-align:center;color:#fff;font-size:12.5px;font-weight:600}.badges span{display:block;font-size:22px;margin-bottom:6px}
+.page-hero{background:linear-gradient(135deg,var(--forestDark),var(--forest));padding:104px 40px}
+.page-hero h1{font-size:clamp(34px,4.6vw,46px);color:#fff;margin-top:16px;max-width:760px}
+.page-hero p{color:rgba(255,255,255,.82);font-size:17px;margin-top:18px;max-width:760px}
+.page-hero .eyebrow{color:var(--gold)}
+/* misc blocks */
+.panel{border-radius:24px;padding:36px}
+.presence{cursor:pointer;transition:.2s}.presence:hover{transform:translateY(-3px)}
+.presence li{list-style:none;color:var(--muted);font-size:15px;margin-bottom:8px;display:flex;gap:10px;align-items:center}.presence li:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--saffron)}
+.presence ul{padding:0;margin:16px 0}.more{color:var(--forest);font-weight:700;font-size:14px}
+.cta{padding:64px 40px}.cta-box{background:linear-gradient(90deg,var(--saffron),#B0702A);border-radius:24px;padding:52px;display:flex;align-items:center;gap:32px}
+.cta-box h2{color:#fff;font-size:28px}.cta-box p{color:rgba(255,255,255,.9);font-size:17px;margin-top:10px}.cta-box .btns{margin:0 0 0 auto;flex:none}
+.cta-box .w{background:#fff;color:var(--forest)}.cta-box .o{border-color:rgba(255,255,255,.7);color:#fff}
+.timeline{margin-top:40px}.tl{display:flex;gap:24px;position:relative;padding-bottom:36px}
+.tl:before{content:"";position:absolute;left:8px;top:22px;bottom:0;width:2px;background:var(--line)}.tl:last-child:before{display:none}
+.dot{width:18px;height:18px;border-radius:50%;background:var(--saffron);border:4px solid var(--saffronLight);flex:none;margin-top:4px;position:relative}
+.tl .d{color:var(--saffron);font-weight:700;font-size:14px}.tl h3{font-size:22px;margin:4px 0 6px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
+.chip{padding:9px 18px;border-radius:30px;border:1px solid var(--line);background:#fff;font-weight:600;font-size:14px;cursor:pointer;font-family:inherit}.chip.on{background:var(--forest);color:#fff;border-color:var(--forest)}
+.fact{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px;color:var(--muted)}.fact b{color:var(--ink)}.fact:last-child{border:0}
+/* forms */
+.formwrap{display:grid;grid-template-columns:4fr 6fr;gap:56px;align-items:start}
+.fcard{background:#fff;border:1px solid var(--line);border-radius:22px;padding:36px}.white .fcard{background:var(--cream)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}.f label{font-size:13px;font-weight:600;color:var(--muted)}
+.f input,.f select,.f textarea{font:inherit;font-size:15px;padding:14px 16px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--forest);box-shadow:0 0 0 1px var(--forest)}
+.info{display:flex;gap:16px;margin-top:22px}.info .i{background:var(--saffronLight);border-radius:12px;width:44px;height:44px;display:grid;place-items:center;flex:none;font-size:20px}
+.info b{display:block;margin-bottom:4px}.info p{font-size:15px;white-space:pre-line}
+.ok{background:var(--sage);border-radius:10px;padding:14px;margin-bottom:16px;font-size:14px}
+/* footer */
+footer{background:var(--forestDark);color:rgba(255,255,255,.7);font-size:15px}
+footer .grid{padding:72px 40px;--c:4;gap:40px}footer h4{color:#fff;margin:0 0 16px;font-size:16px}
+footer a{display:block;margin-bottom:10px;cursor:pointer}footer a:hover{color:#fff}
+footer .logo-mark{background:rgba(255,255,255,.12)}footer .logo b{color:#fff}footer .logo small{color:rgba(255,255,255,.6)}
+.copy{border-top:1px solid rgba(255,255,255,.1);text-align:center;padding:20px;font-size:13px;color:rgba(255,255,255,.5)}
+.page{display:none}.page.show{display:block}
+.drawer{display:none}
+@media(max-width:1079px){.two,.hero .two,.formwrap{grid-template-columns:1fr;gap:36px}.hero-card{height:380px}.grid{--c:2!important}}
+@media(max-width:760px){section,.hero,.page-hero,.cta{padding:56px 20px}header{padding:14px 16px}nav{display:none}.burger{display:block}
+ .grid{--c:1!important}.cta-box{flex-direction:column;align-items:flex-start;padding:28px}.cta-box .btns{margin:0}.frow{grid-template-columns:1fr;gap:0}.fcard{padding:22px}
+ footer .grid{padding:48px 20px}.drawer.open{display:block;position:fixed;inset:70px 0 auto 0;background:var(--cream);padding:16px 20px 24px;z-index:19;border-bottom:1px solid var(--line)}
+ .drawer a{display:block;padding:14px 4px;border-bottom:1px solid var(--line);font-weight:500}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <div class="logo" onclick="go('home')"><div class="logo-mark">❀</div><div><b>VKN Charities</b><small>Heal · Care · Uplift</small></div></div>
+  <nav id="nav">
+    <a data-p="home">Home</a><a data-p="about">About Us</a><a data-p="programs">Our Work</a><a data-p="usa">VKN USA</a><a data-p="involved">Get Involved</a>
+    <a class="btn btn-fill" onclick="go('involved')">Donate</a>
+  </nav>
+  <button class="burger" onclick="document.getElementById('drawer').classList.toggle('open')">☰</button>
+</div></header>
+<div class="drawer" id="drawer"><a data-p="home">Home</a><a data-p="about">About Us</a><a data-p="programs">Our Work</a><a data-p="usa">VKN USA</a><a data-p="involved">Get Involved</a></div>
+
+<!-- ===================== HOME ===================== -->
+<main class="page" id="p-home">
+  <div class="hero"><div class="wrap two">
+    <div>
+      <div class="eyebrow">Coimbatore · Pollachi · Louisville</div>
+      <h1 class="h-display" style="margin-top:20px">Healing body, mind and spirit — and caring for those who have no one.</h1>
+      <p style="font-size:19px;margin-top:22px">VKN Charities brings yoga, meditation, Ayurveda, Siddha and alternative therapies to the community, and provides loving care for orphaned elders and children in Tamil Nadu.</p>
+      <div class="btns"><a class="btn btn-fill" onclick="go('involved')">Support our work</a><a class="btn btn-line" onclick="go('programs')">Explore programmes</a></div>
+    </div>
+    <div class="hero-card"><div class="bg">❀</div>
+      <div style="color:var(--gold);font-size:44px;line-height:1">“</div>
+      <blockquote>True healing begins when we care for the whole person — and for one another.</blockquote>
+      <div class="badges"><div><span>🧘</span>Yoga &amp; Meditation</div><div><span>🤝</span>Elder Care</div><div><span>🧒</span>Child Care</div></div>
+    </div>
+  </div></div>
+  <section class="white" style="padding-top:48px;padding-bottom:48px"><div class="wrap grid" style="--c:4">
+    <div class="stat"><div class="v">Since 2020</div><p>Serving the community in Tamil Nadu</p></div>
+    <div class="stat"><div class="v">12A &amp; 80G</div><p>Registered under the Income Tax Act</p></div>
+    <div class="stat"><div class="v">2 Countries</div><p>India and the United States</p></div>
+    <div class="stat"><div class="v">8 Focus Areas</div><p>Healing, wellbeing, care &amp; education</p></div>
+  </div></section>
+  <section><div class="wrap">
+    <div class="eyebrow">What we do</div><h2 class="h2">Holistic care for every stage of life</h2>
+    <p class="lead">From ancient healing traditions to a safe home for those without family, our work touches health, wellbeing and dignity.</p>
+    <div class="grid" id="home-programs" style="margin-top:48px"></div>
+    <div class="btns" style="margin-top:36px"><a class="btn btn-line" onclick="go('programs')">View all our work →</a></div>
+  </div></section>
+  <section class="white"><div class="wrap two">
+    <div>
+      <div class="eyebrow">Our approach</div><h2 class="h2">Healing the whole person</h2>
+      <p class="lead">We believe wellbeing is physical, mental and spiritual. Our programmes combine time-tested Indian traditions with compassionate, practical care.</p>
+      <div style="margin-top:28px">
+        <div class="bullet">Yoga, meditation and breathwork for balance and resilience</div>
+        <div class="bullet">Awareness of Ayurveda, Siddha and natural therapies</div>
+        <div class="bullet">Shelter, food and companionship for orphaned elders</div>
+        <div class="bullet">A safe, nurturing home and education for children in need</div>
+      </div>
+    </div>
+    <div class="panel" style="background:var(--sage)">
+      <div style="color:var(--saffron);font-weight:600;font-size:14px">Founder President</div>
+      <h3 style="font-size:28px;margin-top:8px">Dr. Krishna Nadar</h3>
+      <p style="font-size:17px;margin-top:16px">Dr. Krishna Nadar founded VKN Charities in Coimbatore and leads its holistic healing and yoga initiatives at Puravipalayam, Pollachi.</p>
+      <p style="margin-top:24px"><a class="more" onclick="go('about')" style="cursor:pointer">Read our story →</a></p>
+    </div>
+  </div></section>
+  <section><div class="wrap">
+    <div class="eyebrow">Where we work</div><h2 class="h2">Rooted in Tamil Nadu, supported worldwide</h2>
+    <div class="grid" style="--c:2;margin-top:40px">
+      <div class="card presence" onclick="go('about')"><div style="font-size:34px">🇮🇳</div><h3 style="margin-top:14px">VKN Charities — India</h3>
+        <ul><li>Coimbatore &amp; Pollachi, Tamil Nadu</li><li>Active since January 2020</li><li>12A registration · 17 Dec 2022</li><li>80G registration · 21 Dec 2022</li></ul><span class="more">Learn more →</span></div>
+      <div class="card presence" onclick="go('usa')"><div style="font-size:34px">🇺🇸</div><h3 style="margin-top:14px">VKN Charities Inc. — USA</h3>
+        <ul><li>Louisville, Kentucky</li><li>501(c)(3) public charity</li><li>Tax-exempt since September 2024</li><li>EIN 87-3637206</li></ul><span class="more">Learn more →</span></div>
+    </div>
+  </div></section>
+  <div class="cta-slot" data-t="Every act of kindness heals someone." data-x="Your support brings care to orphaned elders and children, and holistic healing to those who need it."></div>
+</main>
+
+<!-- ===================== ABOUT ===================== -->
+<main class="page" id="p-about">
+  <div class="page-hero"><div class="wrap"><div class="eyebrow">About us</div><h1>Compassion, rooted in tradition</h1>
+    <p>VKN Charities is a charitable organisation based in Coimbatore, Tamil Nadu, working since January 2020 for holistic health and the care of orphaned elders and children.</p></div></div>
+  <section><div class="wrap two" style="align-items:start">
+    <div>
+      <div class="eyebrow">Our story</div><h2 class="h2">Why VKN Charities exists</h2>
+      <p style="font-size:17px;margin-top:22px">VKN Charities was started with a simple belief: good health and a dignified life should be within everyone's reach. Since January 2020 we have worked across Coimbatore and Pollachi to promote holistic health through yoga, meditation, Ayurveda, Siddha and alternative therapies.</p>
+      <p style="font-size:17px;margin-top:16px">Alongside healing, we care for those society often forgets — elderly people left without family and children who have lost their parents — and support education so that young people can build a better future.</p>
+    </div>
+    <div class="panel" style="background:var(--forest)">
+      <div style="width:84px;height:84px;border-radius:50%;border:2px solid var(--gold);background:rgba(255,255,255,.1);display:grid;place-items:center;font-size:40px">👤</div>
+      <h3 style="font-size:28px;color:#fff;margin-top:22px">Dr. Krishna Nadar</h3>
+      <div style="color:var(--gold);font-weight:600;letter-spacing:1px;font-size:14px;margin-top:4px">Founder President</div>
+      <p style="color:rgba(255,255,255,.85);font-size:17px;margin-top:18px">As Founder President, Dr. Krishna Nadar guides VKN Charities in Coimbatore and its holistic healing and yoga initiatives at Puravipalayam, Pollachi.</p>
+    </div>
+  </div></section>
+  <section class="white"><div class="wrap grid" style="--c:2">
+    <div class="card"><div class="ic">👁️</div><h3>Our Vision</h3><p>A healthy, compassionate society where every person — young or old — can live with wellbeing, care and dignity.</p></div>
+    <div class="card"><div class="ic">🚩</div><h3>Our Mission</h3><p>To promote holistic health through yoga, meditation and traditional medicine, and to provide care, shelter and education for orphaned elders and children.</p></div>
+  </div></section>
+  <section><div class="wrap"><div class="eyebrow">Our values</div><h2 class="h2">What guides us</h2>
+    <div class="grid" style="--c:4;margin-top:40px">
+      <div class="card"><div class="ic">♡</div><h3>Compassion</h3><p>We serve every person with kindness and respect.</p></div>
+      <div class="card"><div class="ic">❀</div><h3>Holistic care</h3><p>We care for body, mind and spirit together.</p></div>
+      <div class="card"><div class="ic">🤝</div><h3>Dignity</h3><p>Every elder and child deserves a life of dignity.</p></div>
+      <div class="card"><div class="ic">✔</div><h3>Transparency</h3><p>Registered and accountable in India and the USA.</p></div>
+    </div></div></section>
+  <section class="white"><div class="wrap"><div class="eyebrow">Milestones</div><h2 class="h2">Our journey so far</h2>
+    <div class="timeline">
+      <div class="tl"><div class="dot"></div><div><div class="d">January 2020</div><h3>Activities begin</h3><p>VKN Charities starts its work in Coimbatore, Tamil Nadu.</p></div></div>
+      <div class="tl"><div class="dot"></div><div><div class="d">17 December 2022</div><h3>12A registration</h3><p>Registered under Section 12A of the Income Tax Act.</p></div></div>
+      <div class="tl"><div class="dot"></div><div><div class="d">21 December 2022</div><h3>80G registration</h3><p>Donations become eligible for tax benefit under Section 80G.</p></div></div>
+      <div class="tl"><div class="dot"></div><div><div class="d">September 2024</div><h3>VKN Charities Inc. (USA)</h3><p>Recognised as a 501(c)(3) tax-exempt public charity.</p></div></div>
+    </div></div></section>
+  <div class="cta-slot" data-t="Walk with us." data-x="Join as a donor, volunteer or well-wisher and help us reach more lives."></div>
+</main>
+
+<!-- ===================== PROGRAMS ===================== -->
+<main class="page" id="p-programs">
+  <div class="page-hero"><div class="wrap"><div class="eyebrow">Our work</div><h1>Programmes that heal and uplift</h1>
+    <p>Holistic health, traditional medicine, and loving care for orphaned elders and children — here is how we serve.</p></div></div>
+  <section><div class="wrap"><div class="chips" id="chips"></div><div class="grid" id="all-programs"></div></div></section>
+  <section class="dark"><div class="wrap two" style="grid-template-columns:3fr 2fr">
+    <div><div class="eyebrow" style="color:var(--gold)">Featured initiative</div>
+      <h2 class="h2" style="color:#fff">Holistic Healing at Puravipalayam, Pollachi</h2>
+      <p style="color:rgba(255,255,255,.85);font-size:17px;margin-top:18px">Led by our Founder President, Dr. Krishna Nadar, the Pollachi initiative is the home of our holistic healing and yoga work — a peaceful setting for practice, therapy and rejuvenation.</p></div>
+    <div style="display:grid;gap:14px">
+      <div class="stat dk"><div class="v">Yoga</div><p>Daily practice &amp; guided sessions</p></div>
+      <div class="stat dk"><div class="v">Meditation</div><p>Mindfulness and inner balance</p></div>
+      <div class="stat dk"><div class="v">Therapies</div><p>Traditional &amp; natural healing</p></div>
+    </div></div></section>
+  <section class="white"><div class="wrap"><div class="eyebrow">How we work</div><h2 class="h2">Simple, personal, lasting</h2>
+    <div class="grid" style="margin-top:40px">
+      <div><div class="serif" style="font-size:36px;color:var(--saffron)">01</div><h3 style="font-size:22px;margin:8px 0">Listen</h3><p>We understand the needs of each individual and community we serve.</p></div>
+      <div><div class="serif" style="font-size:36px;color:var(--saffron)">02</div><h3 style="font-size:22px;margin:8px 0">Care</h3><p>We provide healing, shelter, nutrition and companionship with respect.</p></div>
+      <div><div class="serif" style="font-size:36px;color:var(--saffron)">03</div><h3 style="font-size:22px;margin:8px 0">Empower</h3><p>Through yoga, education and awareness, we help people thrive on their own.</p></div>
+    </div></div></section>
+  <div class="cta-slot" data-t="Help us open more doors." data-x="Support a programme, sponsor care for an elder or child, or volunteer your skills."></div>
+</main>
+
+<!-- ===================== USA ===================== -->
+<main class="page" id="p-usa">
+  <div class="page-hero"><div class="wrap"><div class="eyebrow">VKN Charities Inc. · United States</div><h1>Supporting our mission from the USA</h1>
+    <p>VKN Charities Inc. is a 501(c)(3) public charity based in Louisville, Kentucky, tax-exempt since September 2024.</p></div></div>
+  <section><div class="wrap two" style="grid-template-columns:6fr 5fr;align-items:start">
+    <div><div class="eyebrow">Overview</div><h2 class="h2">An affiliated U.S. public charity</h2>
+      <p style="font-size:17px;margin-top:20px">VKN Charities Inc. shares the vision of VKN Charities in Tamil Nadu: holistic health, yoga, meditation, alternative therapies and care for elderly people and orphans. It gives friends and supporters in the United States a trusted way to take part in this work.</p>
+      <div class="btns"><a class="btn btn-fill" onclick="go('involved')">Make a pledge</a></div></div>
+    <div class="card" style="padding:32px"><h3>Key facts</h3><div style="margin-top:18px">
+      <div class="fact"><span>Legal name</span><b>VKN Charities Inc.</b></div>
+      <div class="fact"><span>Location</span><b>Louisville, Kentucky, USA</b></div>
+      <div class="fact"><span>EIN</span><b>87-3637206</b></div>
+      <div class="fact"><span>Status</span><b>501(c)(3) public charity</b></div>
+      <div class="fact"><span>Tax-exempt since</span><b>September 2024</b></div>
+      <div class="fact"><span>Annual return</span><b>IRS Form 990-EZ</b></div></div></div>
+  </div></section>
+  <section class="white"><div class="wrap"><div class="eyebrow">Stated mission</div><h2 class="h2">What VKN Charities Inc. works to establish and maintain</h2>
+    <div class="grid" style="margin-top:40px">
+      <div class="card"><div class="ic">❀</div><h3>Holistic healing centres</h3><p>Places of integrated, whole-person care.</p></div>
+      <div class="card"><div class="ic">🧘</div><h3>Yoga &amp; meditation retreats</h3><p>Spaces for practice, reflection and renewal.</p></div>
+      <div class="card"><div class="ic">🌿</div><h3>Alternative medicine centres</h3><p>Treatment rooted in natural and traditional systems.</p></div>
+      <div class="card"><div class="ic">🧒</div><h3>Orphanages</h3><p>A safe and loving home for children in need.</p></div>
+      <div class="card"><div class="ic">🤝</div><h3>Old age homes</h3><p>Shelter, care and companionship for elders.</p></div>
+      <div class="card"><div class="ic">🌳</div><h3>Relief &amp; recharge centres</h3><p>Calm places to rest, restore and recover.</p></div>
+    </div></div></section>
+  <section><div class="wrap"><div class="eyebrow">Transparency</div><h2 class="h2">Financial snapshot — FY 2024</h2><p class="lead">As reported on IRS Form 990-EZ.</p>
+    <div class="grid" style="margin-top:36px">
+      <div class="stat"><div class="v">$115K</div><p>Total revenue</p></div>
+      <div class="stat"><div class="v">$16.1K</div><p>Total expenses</p></div>
+      <div class="stat"><div class="v">990-EZ</div><p>Annual information return</p></div>
+    </div>
+    <p style="font-size:13px;margin-top:20px">Figures are rounded. Public filings for U.S. tax-exempt organisations are available from the IRS.</p></div></section>
+  <div class="cta-slot" data-t="Give from the United States." data-x="Contributions to VKN Charities Inc. may be tax-deductible to the extent allowed by law."></div>
+</main>
+
+<!-- ===================== GET INVOLVED ===================== -->
+<main class="page" id="p-involved">
+  <div class="page-hero"><div class="wrap"><div class="eyebrow">Get involved</div><h1>Give, serve, or simply say hello</h1>
+    <p>There are many ways to be part of VKN Charities. Choose what feels right for you.</p></div></div>
+  <section style="padding-top:64px;padding-bottom:64px"><div class="wrap grid">
+    <div class="card"><div class="ic">💛</div><h3>Donate</h3><p>Support healing programmes and care for orphaned elders and children.</p></div>
+    <div class="card"><div class="ic">👥</div><h3>Volunteer</h3><p>Teach yoga, spend time with elders, help children learn, or lend your skills.</p></div>
+    <div class="card"><div class="ic">📣</div><h3>Spread the word</h3><p>Tell friends and family about our work and help us reach more people.</p></div>
+  </div></section>
+  <section class="white"><div class="wrap formwrap">
+    <div><div class="eyebrow">Donate</div><h2 class="h2">Make a pledge</h2>
+      <p class="lead">Tell us how you would like to help. Our team will email you the bank / payment details and send your receipt once the gift is received.</p>
+      <div class="info"><div class="i">🧾</div><div><b>India — Section 80G</b><p>Donations to VKN Charities are eligible for deduction under Section 80G of the Income Tax Act, subject to the applicable limits.</p></div></div>
+      <div class="info"><div class="i">🏛️</div><div><b>USA — 501(c)(3)</b><p>Gifts to VKN Charities Inc. (EIN 87-3637206) may be tax-deductible to the extent allowed by law.</p></div></div>
+      <div class="info"><div class="i">🔒</div><div><b>No payment on this site</b><p>This form only records your pledge. Please never share card or bank PINs with anyone.</p></div></div>
+    </div>
+    <form class="fcard" onsubmit="return done(this,'Thank you for your generosity! We will email you the payment and receipt details.')">
+      <div class="frow"><div class="f"><label>Full name *</label><input required></div><div class="f"><label>Email *</label><input type="email" required></div></div>
+      <div class="frow"><div class="f"><label>Phone</label><input type="tel"></div><div class="f"><label>Donate to</label><select><option>VKN Charities — India (₹)</option><option>VKN Charities Inc. — USA ($)</option></select></div></div>
+      <div class="frow"><div class="f"><label>Amount (₹ for India, $ for USA) *</label><input type="number" min="1" required></div><div class="f"><label>Purpose</label><select><option>Where it is needed most</option><option>Care for orphaned elders</option><option>Care for orphaned children</option><option>Holistic healing &amp; yoga</option><option>Education</option></select></div></div>
+      <div class="f"><label>Message (optional)</label><textarea rows="4"></textarea></div>
+      <button class="btn btn-fill">➤ Submit pledge</button>
+    </form>
+  </div></section>
+  <section><div class="wrap formwrap">
+    <div><div class="eyebrow">Volunteer</div><h2 class="h2">Share your time and talent</h2>
+      <p class="lead">Whether you can give an hour a week or a few days a month, your presence makes a real difference.</p>
+      <div style="margin-top:18px"><div class="bullet">Lead or assist yoga and meditation sessions</div><div class="bullet">Spend time with elders — reading, talking, caring</div><div class="bullet">Tutor and mentor children</div><div class="bullet">Help with events, outreach, design or accounts</div></div>
+    </div>
+    <form class="fcard" onsubmit="return done(this,'Thank you for offering your time! Our team will contact you.')">
+      <div class="frow"><div class="f"><label>Full name *</label><input required></div><div class="f"><label>Email *</label><input type="email" required></div></div>
+      <div class="frow"><div class="f"><label>Phone *</label><input type="tel" required></div><div class="f"><label>City</label><input></div></div>
+      <div class="frow"><div class="f"><label>Area of interest</label><select><option>Yoga &amp; meditation</option><option>Elder care</option><option>Children &amp; education</option><option>Events &amp; outreach</option><option>Professional skills</option></select></div>
+        <div class="f"><label>Availability</label><select><option>Weekends</option><option>Weekdays</option><option>Occasional / events</option><option>Remote</option></select></div></div>
+      <div class="f"><label>Tell us a little about yourself</label><textarea rows="4"></textarea></div>
+      <button class="btn btn-fill">➤ Sign up to volunteer</button>
+    </form>
+  </div></section>
+  <section class="white"><div class="wrap formwrap">
+    <div><div class="eyebrow">Contact</div><h2 class="h2">We would love to hear from you</h2>
+      <p class="lead">Questions about our programmes, visits, partnerships or receipts — write to us.</p>
+      <div class="info"><div class="i">📍</div><div><b>India</b><p>Puravipalayam, Pollachi
+Coimbatore District, Tamil Nadu 642005</p></div></div>
+      <div class="info"><div class="i">🌐</div><div><b>USA</b><p>Louisville, Kentucky, USA</p></div></div>
+      <div class="info"><div class="i">✉️</div><div><b>Email</b><p>info@vkncharities.org</p></div></div>
+      <div class="info"><div class="i">📞</div><div><b>Phone</b><p>+91 00000 00000</p></div></div>
+    </div>
+    <form class="fcard" onsubmit="return done(this,'Thank you! We will get back to you soon.')">
+      <div class="frow"><div class="f"><label>Full name *</label><input required></div><div class="f"><label>Email *</label><input type="email" required></div></div>
+      <div class="frow"><div class="f"><label>Phone</label><input type="tel"></div><div class="f"><label>Subject</label><input></div></div>
+      <div class="f"><label>Message *</label><textarea rows="5" required></textarea></div>
+      <button class="btn btn-fill">➤ Send message</button>
+    </form>
+  </div></section>
+</main>
+
+<footer>
+  <div class="wrap grid">
+    <div><div class="logo" onclick="go('home')"><div class="logo-mark">❀</div><div><b>VKN Charities</b><small>Heal · Care · Uplift</small></div></div>
+      <p style="color:rgba(255,255,255,.7);margin-top:18px;font-size:15px">A registered charitable organisation in Tamil Nadu, India, working for holistic health, yoga, meditation, traditional medicine and the care of orphaned elders and children.</p></div>
+    <div><h4>Explore</h4><a data-p="home">Home</a><a data-p="about">About Us</a><a data-p="programs">Our Work</a><a data-p="usa">VKN USA</a><a data-p="involved">Get Involved</a></div>
+    <div><h4>India Office</h4>Puravipalayam, Pollachi<br>Coimbatore District, Tamil Nadu 642005<br><br>info@vkncharities.org<br>+91 00000 00000</div>
+    <div><h4>Registrations</h4>12A — granted 17 Dec 2022<br><br>80G — granted 21 Dec 2022<br><br>VKN Charities Inc. (USA)<br>501(c)(3) · EIN 87-3637206</div>
+  </div>
+  <div class="copy">© 2026 VKN Charities. All rights reserved. · Preview of the Flutter site design</div>
+</footer>
+
+<script>
+const programs=[
+ ['🌸','Holistic Healing Centres','Healing','Puravipalayam, Pollachi','Integrated care that brings together traditional and complementary therapies to support the whole person — body, mind and spirit.'],
+ ['🧘','Yoga & Meditation Retreats','Wellbeing','Coimbatore & Pollachi','Guided yoga, pranayama and meditation sessions and retreats for stress relief, inner balance and healthy living.'],
+ ['🌿','Ayurveda & Siddha','Healing','Tamil Nadu',"Awareness and access to India's time-honoured systems of medicine, including Tamil Nadu's own Siddha tradition."],
+ ['✚','Alternative Therapies','Healing','Tamil Nadu','Natural and complementary treatment approaches offered alongside guidance on healthy lifestyle and diet.'],
+ ['🤝','Care for Orphaned Elders','Care','Coimbatore','Shelter, companionship, nutrition and health support for elderly people who have no one to care for them.'],
+ ['🧒','Care for Orphaned Children','Care','Coimbatore','A safe, loving environment for children in need, with food, health care and a foundation for the future.'],
+ ['🎓','Education','Education','Tamil Nadu','Learning support and value-based education that helps children and young people build a better future.'],
+ ['🌳','Relief & Recharge Centres','Wellbeing','Planned','Calm spaces where people can rest, restore and recover their energy and wellbeing.']];
+const card=(p,tag)=>`<div class="card"><div class="ic">${p[0]}</div><h3>${p[1]}</h3>${tag?`<div class="tag">${p[2]} · ${p[3]}</div>`:''}<p>${p[4]}</p></div>`;
+document.getElementById('home-programs').innerHTML=programs.slice(0,6).map(p=>card(p)).join('');
+let filter='All';
+function renderPrograms(){
+  const cats=['All',...new Set(programs.map(p=>p[2]))];
+  document.getElementById('chips').innerHTML=cats.map(c=>`<button class="chip ${c===filter?'on':''}" onclick="filter='${c}';renderPrograms()">${c}</button>`).join('');
+  document.getElementById('all-programs').innerHTML=programs.filter(p=>filter==='All'||p[2]===filter).map(p=>card(p,true)).join('');
+}
+renderPrograms();
+document.querySelectorAll('.cta-slot').forEach(s=>{s.outerHTML=`<div class="cta"><div class="wrap cta-box"><div><h2>${s.dataset.t}</h2><p>${s.dataset.x}</p></div><div class="btns"><a class="btn w" onclick="go('involved')">Donate now</a><a class="btn o" onclick="go('involved')">Volunteer</a></div></div></div>`});
+function go(p){
+  if(!document.getElementById('p-'+p)) p='home';
+  document.querySelectorAll('.page').forEach(e=>e.classList.toggle('show',e.id==='p-'+p));
+  document.querySelectorAll('[data-p]').forEach(a=>a.classList.toggle('active',a.dataset.p===p));
+  document.getElementById('drawer').classList.remove('open');
+  if(location.hash!=='#'+p) history.replaceState(null,'','#'+p);
+  window.scrollTo(0,0);
+}
+document.querySelectorAll('[data-p]').forEach(a=>{a.style.cursor='pointer';a.onclick=()=>go(a.dataset.p)});
+function done(f,msg){f.querySelector('.ok')?.remove();f.reset();f.insertAdjacentHTML('afterbegin',`<div class="ok">✅ ${msg} <i>(Preview only — in the real site this is saved to Supabase via the Node API.)</i></div>`);return false}
+go((location.hash||'#home').slice(1).replace(/[^a-z]/g,'')||'home');
+</script>
+</body>
+</html>

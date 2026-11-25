@@ -1,0 +1,11 @@
+node_modules/
+.env
+frontend/build/
+frontend/.dart_tool/
+frontend/.flutter-plugins*
+frontend/.packages
+.DS_Store
+
+# Local artefacts
+build.log
+*.zip

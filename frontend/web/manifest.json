@@ -1,0 +1,12 @@
+{
+  "name": "VKN Charities",
+  "short_name": "VKN Charities",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#FCF2E8",
+  "theme_color": "#A0705F",
+  "description": "Holistic healing, yoga, meditation and care for orphaned elders and children.",
+  "orientation": "any",
+  "prefer_related_applications": false,
+  "icons": []
+}

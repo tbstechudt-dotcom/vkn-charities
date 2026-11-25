@@ -1,0 +1,20 @@
+// Used only when Supabase is not configured or unreachable,
+// so the "Our Work" page never shows an empty screen.
+export const fallbackPrograms = [
+  { slug: 'holistic-healing', title: 'Holistic Healing Centres', category: 'Healing', icon: 'spa', location: 'Puravipalayam, Pollachi',
+    summary: 'Integrated care that brings together traditional and complementary therapies to support the whole person — body, mind and spirit.' },
+  { slug: 'yoga-meditation', title: 'Yoga & Meditation Retreats', category: 'Wellbeing', icon: 'self_improvement', location: 'Coimbatore & Pollachi',
+    summary: 'Guided yoga, pranayama and meditation sessions and retreats for stress relief, inner balance and healthy living.' },
+  { slug: 'ayurveda-siddha', title: 'Ayurveda & Siddha', category: 'Healing', icon: 'eco', location: 'Tamil Nadu',
+    summary: "Awareness and access to India's time-honoured systems of medicine, including Tamil Nadu's own Siddha tradition." },
+  { slug: 'alternative-therapies', title: 'Alternative Therapies', category: 'Healing', icon: 'healing', location: 'Tamil Nadu',
+    summary: 'Natural and complementary treatment approaches offered alongside guidance on healthy lifestyle and diet.' },
+  { slug: 'elder-care', title: 'Care for Orphaned Elders', category: 'Care', icon: 'elderly', location: 'Coimbatore',
+    summary: 'Shelter, companionship, nutrition and health support for elderly people who have no one to care for them.' },
+  { slug: 'children', title: 'Care for Orphaned Children', category: 'Care', icon: 'child_care', location: 'Coimbatore',
+    summary: 'A safe, loving environment for children in need, with food, health care and a foundation for the future.' },
+  { slug: 'education', title: 'Education', category: 'Education', icon: 'school', location: 'Tamil Nadu',
+    summary: 'Learning support and value-based education that helps children and young people build a better future.' },
+  { slug: 'relief-recharge', title: 'Relief & Recharge Centres', category: 'Wellbeing', icon: 'park', location: 'Planned',
+    summary: 'Calm spaces where people can rest, restore and recover their energy and wellbeing.' },
+];
