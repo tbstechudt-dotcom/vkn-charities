@@ -1,2 +1,5 @@
-# Compiled Flutter web build (published by GitHub Pages) — exclude from language stats.
+# Compiled Flutter web build (published by GitHub Pages) - exclude from language stats.
 docs/** linguist-generated=true linguist-vendored=true
+
+# Old static HTML mock-up kept for reference - not part of the app.
+preview/** linguist-documentation=true
